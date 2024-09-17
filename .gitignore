@@ -1,5 +1,20 @@
-node_modules
+# IDEs and editors
+.idea
+.vscode
+
+# build output
 dist
 unpackage
+node_modules
 
+# IDEs and editors
+.idea
+.vscode
+
+# lock files
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# others
 .DS_Store

@@ -1,47 +1,41 @@
 {
-	"easycom":
-	{
+	"easycom": {
 		"autoscan": true
 	},
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [
+		//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
 			"path": "pages/index/index",
-			"style":
-			{
+			"style": {
 				"navigationBarTitleText": "uni-app x"
 			}
 		},
 		{
 			"path": "pages/components/button/button",
-			"style":
-			{
+			"style": {
 				"navigationBarTitleText": "Button"
 			}
 		},
 		{
 			"path": "pages/components/icon/icon",
-			"style":
-			{
+			"style": {
 				"navigationBarTitleText": "Icon"
 			}
 		},
 		{
-			"path" : "pages/components/col/col",
-			"style" : 
-			{
-				"navigationBarTitleText" : "col"
+			"path": "pages/components/col/col",
+			"style": {
+				"navigationBarTitleText": "col"
 			}
 		},
 		{
-			"path" : "pages/components/divider/divider",
-			"style" : 
-			{
-				"navigationBarTitleText" : "Divider"
+			"path": "pages/components/divider/divider",
+			"style": {
+				"navigationBarTitleText": "Divider"
 			}
 		}
 	],
-	"globalStyle":
-	{
+	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app x",
 		"navigationBarBackgroundColor": "#F8F8F8",

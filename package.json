@@ -1,0 +1,21 @@
+{
+	"name": "tdesign-uvue",
+	"version": "1.0.0",
+	"author": "edazh",
+	"description": "",
+	"type": "module",
+	"keywords": ["uni-app-x", "uvue", "tdesign", "uni-app", "uts"],
+	"scripts": {
+		"prepare": "husky"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:edazh/tdesign-uvue.git"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"@commitlint/cli": "^19.5.0",
+		"@commitlint/config-conventional": "^19.5.0",
+		"husky": "^9.1.6"
+	}
+}
