@@ -1,0 +1,119 @@
+<template>
+	<view class="component-panel">
+		<view
+			class="component-panel__header"
+			:class="{
+				'component-panel__header--active': panelHeight > 0,
+			}"
+			@click="toggleCollapse"
+		>
+			<view class="component-panel__name">{{ props.name }}</view>
+			<t-icon :name="props.icon" size="24px" color="#A6A6A6" />
+		</view>
+		<view class="component-panel__body" :style="{ height: `${panelHeight}px` }">
+			<view
+				v-for="item in props.data"
+				:key="item.name"
+				class="component-panel__child"
+				hover-class="component-panel__child--hover"
+				@click="() => handleChildClick(item)"
+			>
+				{{ item.name }} {{ item.label }}
+				<t-icon name="chevron-right" size="24px" color="#A6A6A6" />
+			</view>
+		</view>
+	</view>
+</template>
+
+<script lang="uts" setup>
+type ComponentItem = {
+	name: string
+	label: string
+}
+
+const ITEM_HEIGHT = 56
+
+const props = defineProps<{
+	name: string
+	icon: string
+	data: ComponentItem[]
+}>()
+
+const emits = defineEmits<{
+	(e: 'click', data: ComponentItem): void
+}>()
+
+const expaned = ref(false)
+
+const panelHeight = computed((): number => {
+	return expaned.value ? props.data.length * ITEM_HEIGHT : 0
+})
+
+function toggleCollapse() {
+	expaned.value = !expaned.value
+}
+
+function handleChildClick(item: ComponentItem) {
+	emits('click', item)
+}
+</script>
+
+<style lang="scss">
+.component-panel {
+	width: 100%;
+	box-sizing: border-box;
+	background-color: $bg-color-container;
+	border-radius: 8px;
+	margin-bottom: 12px;
+	overflow: hidden;
+
+	&__header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		height: 60px;
+		padding: 0 16px;
+		font-size: 16px;
+		line-height: 24px;
+		color: $text-color-secondary;
+		transition: opacity 0.3s;
+		opacity: 1;
+
+		&--active {
+			opacity: 0.4;
+		}
+	}
+
+	&__name {
+		opacity: 0.9;
+	}
+
+	&__body {
+		transition: height 0.3s;
+
+		.component-panel__child {
+			display: flex;
+			flex-direction: row;
+			box-sizing: border-box;
+			border-bottom: 1px solid $component-stroke;
+			height: 56px;
+			justify-content: space-between;
+			align-items: center;
+			padding-left: 16px;
+			padding-right: 16px;
+			font-size: 16px;
+			opacity: 0.9;
+			color: $text-color-primary;
+
+			@at-root .component-panel__child--hover {
+				background-color: $bg-color-container-active;
+			}
+
+			&:last-of-type {
+				border-bottom-color: transparent;
+			}
+		}
+	}
+}
+</style>

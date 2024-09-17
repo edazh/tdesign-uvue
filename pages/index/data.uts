@@ -1,0 +1,265 @@
+const base = {
+	name: '基础',
+	icon: 'app',
+	children: [
+		{
+			name: 'Button',
+			label: '按钮',
+		},
+		{
+			name: 'Divider',
+			label: '分割线',
+		},
+		{
+			name: 'Fab',
+			label: '悬浮按钮',
+		},
+		{
+			name: 'Icon',
+			label: '图标',
+		},
+		{
+			name: 'Link',
+			label: '链接',
+		},
+		{
+			name: 'Layout',
+			label: '布局',
+			path: '/pages/components/col/col',
+		},
+	],
+}
+
+const nav = {
+	name: ' 导航',
+	icon: 'view-module',
+	children: [
+		{
+			name: 'BackTop',
+			label: '返回顶部',
+		},
+		{
+			name: 'Drawer',
+			label: '抽屉',
+		},
+		{
+			name: 'Indexes',
+			label: '索引',
+		},
+		{
+			name: 'Navbar',
+			label: '导航栏',
+		},
+		{
+			name: 'SideBar',
+			label: '侧边栏',
+		},
+		{
+			name: 'Steps',
+			label: '步骤条',
+		},
+		{
+			name: 'TabBar',
+			label: '标签栏',
+		},
+		{
+			name: 'Tabs',
+			label: '选项卡',
+		},
+	],
+}
+
+const display = {
+	name: '数据展示',
+	icon: 'image',
+	children: [
+		{
+			name: 'Avatar',
+			label: '头像',
+		},
+		{
+			name: 'Badge',
+			label: '徽标',
+		},
+		{
+			name: 'Cell',
+			label: '单元格',
+		},
+		{
+			name: 'Collapse',
+			label: '折叠面板',
+		},
+		{
+			name: 'CountDown',
+			label: '倒计时',
+		},
+		{
+			name: 'Empty',
+			label: '空状态',
+		},
+		{
+			name: 'Footer',
+			label: '页脚',
+		},
+		{
+			name: 'Grid',
+			label: '宫格',
+		},
+		{
+			name: 'Image',
+			label: '图片',
+		},
+		{
+			name: 'ImageViewer',
+			label: '图片预览',
+		},
+		{
+			name: 'Progress',
+			label: '进度条',
+		},
+		{
+			name: 'Result',
+			label: '结果',
+		},
+		{
+			name: 'Skeleton',
+			label: '骨架屏',
+		},
+		{
+			name: 'Sticky',
+			label: '吸顶',
+		},
+		{
+			name: 'Swiper',
+			label: '轮播图',
+		},
+		{
+			name: 'Tag',
+			label: '标签',
+		},
+	],
+}
+
+const form = {
+	name: '输入',
+	icon: 'bulletpoint',
+	children: [
+		{
+			name: 'Calendar',
+			label: '日历',
+		},
+		{
+			name: 'Cascader',
+			label: '级联选择器',
+		},
+		{
+			name: 'Checkbox',
+			label: '多选框',
+		},
+		{
+			name: 'DateTimePicker',
+			label: '时间选择器',
+		},
+		{
+			name: 'Input',
+			label: '输入框',
+		},
+		{
+			name: 'Picker',
+			label: '选择器',
+		},
+		{
+			name: 'Radio',
+			label: '单选框',
+		},
+		{
+			name: 'Rate',
+			label: '评分',
+		},
+		{
+			name: 'Search',
+			label: '搜索框',
+		},
+		{
+			name: 'Slider',
+			label: '滑动选择器',
+		},
+		{
+			name: 'Stepper',
+			label: '步进器',
+		},
+		{
+			name: 'Switch',
+			label: '开关',
+		},
+		{
+			name: 'Textarea',
+			label: '多行文本框',
+		},
+		{
+			name: 'TreeSelect',
+			label: '树形选择器',
+		},
+		{
+			name: 'Upload',
+			label: '上传',
+		},
+	],
+}
+
+const ux = {
+	name: '反馈',
+	icon: 'chat',
+	children: [
+		{
+			name: 'ActionSheet',
+			label: '动作面板',
+		},
+		{
+			name: 'Dialog',
+			label: '对话框',
+		},
+		{
+			name: 'DropdownMenu',
+			label: '下拉菜单',
+		},
+		{
+			name: 'Guide',
+			label: '引导',
+		},
+		{
+			name: 'Loading',
+			label: '加载',
+		},
+		{
+			name: 'Message',
+			label: '消息通知',
+		},
+		{
+			name: 'NoticeBar',
+			label: '公告栏',
+		},
+		{
+			name: 'Overlay',
+			label: '遮罩层',
+		},
+		{
+			name: 'Popup',
+			label: '弹出层',
+		},
+		{
+			name: 'PullDownRefresh',
+			label: '下拉刷新',
+		},
+		{
+			name: 'SwipeCell',
+			label: '滑动操作',
+		},
+		{
+			name: 'Toast',
+			label: '轻提示',
+		},
+	],
+}
+
+export default [base, nav, form, display, ux]

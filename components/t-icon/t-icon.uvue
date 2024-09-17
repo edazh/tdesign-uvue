@@ -1,0 +1,33 @@
+<template>
+	<text :class="iconClass" :style="iconStyle">{{ iconCode }}</text>
+</template>
+
+<script lang="uts" setup>
+import { PropsType, defaultProps } from './props.uts'
+import iconsMap from './icons.uts'
+
+const name = `t-icon`
+
+const props = withDefaults(defineProps<PropsType>(), defaultProps)
+
+const iconClass = computed((): Map<string, boolean> => {
+	return new Map<string, boolean>([
+		[name, true],
+		[`${props.prefix.length > 0 ? props.prefix : name}-${props.name}`, true],
+	])
+})
+
+const iconStyle = computed((): Map<string, string> => {
+	return new Map<string, string>([
+		['font-size', props.size],
+		['color', props.color],
+		// ['font-family', 'tdesignbymyicons'],
+	])
+})
+
+const iconCode = computed((): string => {
+	return iconsMap[props.name] as string
+})
+</script>
+
+<style lang="scss" src="./t-icon.scss"></style>

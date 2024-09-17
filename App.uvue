@@ -1,0 +1,60 @@
+<script lang="uts">
+let firstBackTime = 0
+export default {
+	onLaunch: function () {
+		console.log('App Launch')
+	},
+	onShow: function () {
+		console.log('App Show')
+	},
+	onHide: function () {
+		console.log('App Hide')
+	},
+	// #ifdef APP-ANDROID
+	onLastPageBackPress: function () {
+		console.log('App LastPageBackPress')
+		if (firstBackTime == 0) {
+			uni.showToast({
+				title: '再按一次退出应用',
+				position: 'bottom',
+			})
+			firstBackTime = Date.now()
+			setTimeout(() => {
+				firstBackTime = 0
+			}, 2000)
+		} else if (Date.now() - firstBackTime < 2000) {
+			firstBackTime = Date.now()
+			uni.exit()
+		}
+	},
+	// #endif
+	onExit: function () {
+		console.log('App Exit')
+	},
+}
+</script>
+
+<style lang="scss">
+$font-size-title: $font-size-l;
+$font-size-subtitle: $font-size-m;
+$font-size-caption: $font-size-base;
+$text-color-caption: $text-color-secondary;
+$padding-x: $spacer-2;
+$padding-y: $spacer;
+
+.demo-title {
+	font-size: $font-size-title;
+	padding: $padding-y $padding-x;
+	font-weight: bold;
+}
+.demo-subtitle {
+	font-size: $font-size-subtitle;
+	padding: $padding-y $padding-x;
+	font-weight: bold;
+}
+.demo-caption {
+	font-size: $font-size-caption;
+	color: $text-color-caption;
+	padding: $padding-y $padding-x;
+}
+</style>

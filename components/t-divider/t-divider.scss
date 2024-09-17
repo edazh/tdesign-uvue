@@ -1,0 +1,76 @@
+$divider-color: $bg-color-component;
+$divider-content-color: $text-color-placeholder;
+$divider-content-font-size: 12px;
+$divider-content-line-height: 20px;
+$divider-content-line-style: solid;
+
+.#{$prefix}-divider {
+	display: flex;
+	width: 100%;
+
+	&__before,
+	&__after {
+		display: flex;
+		flex: 1;
+		box-sizing: border-box;
+		border-width: 0;
+		border-color: $divider-color;
+		border-style: $divider-content-line-style;
+	}
+
+	&__content {
+		margin: 0 12px;
+	}
+
+	&--horizontal {
+		flex-direction: row;
+		align-items: center;
+		margin-top: 10px;
+		margin-bottom: 10px;
+
+		.#{$prefix}-divider__before,
+		.#{$prefix}-divider__after {
+			border-top-width: 1px;
+			transform: scaleY(0.5);
+			transform-origin: bottom;
+		}
+	}
+
+	&--vertical {
+		flex-direction: column;
+		height: 14px;
+		margin: 0 8px;
+		width: auto;
+
+		.#{$prefix}-divider__before,
+		.#{$prefix}-divider__after {
+			border-left-width: 1px;
+			transform: scaleX(0.5);
+			transform-origin: bottom;
+		}
+	}
+
+	&--dashed {
+		.#{$prefix}-divider__before,
+		.#{$prefix}-divider__after {
+			border-style: dashed;
+		}
+	}
+
+	&--empty {
+		.#{$prefix}-divider__content {
+			margin: 0;
+		}
+	}
+
+	&__content-text {
+		font-size: $divider-content-font-size;
+		line-height: $divider-content-line-height;
+		color: $divider-content-color;
+	}
+
+	&--left .#{$prefix}-divider__before,
+	&--right .#{$prefix}-divider__after {
+		max-width: 30px;
+	}
+}

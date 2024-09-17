@@ -1,0 +1,478 @@
+@import './_var.scss';
+
+.#{$button} {
+	display: flex;
+	justify-content: center;
+	transition-property: background-color, border-color, color;
+	transition-duration: 0.3s;
+	border: $button-border-width solid transparent;
+	border-radius: $button-border-radius;
+	font-family: PingFang SC, Microsoft YaHei, Arial Regular;
+	font-weight: $button-font-weight;
+
+	// #ifndef APP
+	touch-action: manipulation;
+	@include cursor-pointer();
+	/* stylelint-disable-next-line */
+	-webkit-appearance: none;
+	&::after {
+		display: none;
+	}
+	// #endif
+
+	@each $size, $values in $button-sizes {
+		&--size-#{$size} {
+			font-size: map.get($values, 'font');
+			padding-left: map.get($values, 'padding-horizontal');
+			padding-right: map.get($values, 'padding-horizontal');
+			height: map.get($values, 'height');
+
+			line-height: calc(map.get($values, 'height') - $button-border-width * 2);
+
+			& .#{$button}__icon {
+				font-size: map.get($values, 'icon');
+			}
+		}
+	}
+
+	@each $theme, $variants in $button-colors {
+		&--#{$theme} {
+			// color: map.get($variants, 'base', 'color');
+			// background-color: map.get($variants, 'base', 'background');
+
+			@each $variant, $colors in $variants {
+				&.#{$button}--#{$variant} {
+					color: map.get($colors, 'color');
+					@if map.has-key($colors, 'background') {
+						background-color: map.get($colors, 'background');
+					} @else {
+						background-color: transparent;
+					}
+					@if map.has-key($colors, 'border') {
+						border-style: map.get($colors, 'border-style');
+						border-color: map.get($colors, 'border');
+					} @else {
+						border-color: transparent;
+					}
+
+					&.#{$button}--disabled {
+						cursor: not-allowed;
+						color: map.get($colors, 'disabled');
+						border-color: map.get($colors, 'disabled-border');
+						background-color: map.get($colors, 'disabled-background');
+					}
+
+					// #ifdef APP
+					@at-root .#{$button}--#{$theme}-#{$variant}-hover {
+						color: map.get($button-colors, $theme, $variant, 'active');
+						border-color: map.get($button-colors, $theme, $variant, 'active-border');
+						background-color: map.get($button-colors, $theme, $variant, 'active-background');
+					}
+					// #endif
+					// #ifndef APP
+					&.#{$button}--#{$theme}-#{$variant}-hover {
+						color: map.get($button-colors, $theme, $variant, 'active');
+						border-color: map.get($button-colors, $theme, $variant, 'active-border');
+						background-color: map.get($button-colors, $theme, $variant, 'active-background');
+					}
+					// #endif
+				}
+			}
+		}
+	}
+
+	// &--text {
+	// 	color: map.get($theme-colors, 'default');
+	// 	background-color: $bg-color-container;
+	// 	border: 0;
+
+	// 	&.#{$button}--primary {
+	// 		color: $button-primary-text-color;
+	// 		background-color: $bg-color-container;
+
+	// 		&.#{$button}--disabled {
+	// 			color: $button-primary-text-disabled-color;
+	// 			background-color: $bg-color-container;
+	// 		}
+	// 	}
+
+	// 	&.#{$button}--danger {
+	// 		color: $button-danger-text-color;
+	// 		background-color: $bg-color-container;
+
+	// 		&.#{$button}--disabled {
+	// 			color: $button-danger-text-disabled-color;
+	// 			background-color: $bg-color-container;
+	// 		}
+	// 	}
+
+	// 	&.#{$button}--light {
+	// 		color: $button-light-text-color;
+	// 		background-color: $bg-color-container;
+	// 	}
+
+	// 	&.#{$button}--disabled {
+	// 		color: map.get($theme-disabled-colors, 'default');
+	// 	}
+	// }
+
+	// &--ghost {
+	// 	background-color: transparent;
+	// 	color: $button-ghost-color;
+
+	// 	&,
+	// 	&::after {
+	// 		border-color: $button-ghost-border-color;
+	// 	}
+
+	// 	&.#{$button}--hover,
+	// 	&.#{$button}--hover::after {
+	// 		background-color: none;
+	// 	}
+
+	// 	&.#{$button}--primary {
+	// 		color: $button-ghost-primary-color;
+
+	// 		&,
+	// 		&::after {
+	// 			border-color: $button-ghost-primary-border-color;
+	// 		}
+	// 	}
+
+	// 	&.#{$button}--danger {
+	// 		color: $button-ghost-danger-color;
+
+	// 		&,
+	// 		&::after {
+	// 			border-color: $button-ghost-danger-border-color;
+	// 		}
+	// 	}
+
+	// 	&.#{$button}--disabled {
+	// 		background-color: transparent;
+	// 		color: $button-ghost-disabled-color;
+
+	// 		&,
+	// 		&::after {
+	// 			border-color: $button-ghost-disabled-color;
+	// 		}
+	// 	}
+	// }
+
+	// &--outline {
+	// 	color: $button-default-outline-color;
+	// 	background-color: $bg-color-container;
+
+	// 	&,
+	// 	&::after {
+	// 		border-color: $button-default-outline-border-color;
+	// 	}
+
+	// 	&.#{$button}--hover,
+	// 	&.#{$button}--hover::after {
+	// 		background-color: $button-default-outline-active-bg-color;
+	// 		border-color: $button-default-outline-active-border-color;
+	// 	}
+
+	// 	&.#{$button}--disabled {
+	// 		color: $button-default-outline-disabled-color;
+
+	// 		&,
+	// 		&::after {
+	// 			border-color: $button-default-outline-disabled-color;
+	// 		}
+	// 	}
+
+	// 	&.#{$button}--primary {
+	// 		color: $button-primary-outline-color;
+
+	// 		&,
+	// 		&::after {
+	// 			border-color: $button-primary-outline-border-color;
+	// 		}
+
+	// 		&.#{$button}--hover {
+	// 			color: $button-primary-outline-active-border-color;
+
+	// 			&::after {
+	// 				background-color: $button-primary-outline-active-bg-color;
+	// 				border-color: $button-primary-outline-active-border-color;
+	// 			}
+	// 		}
+
+	// 		&.#{$button}--disabled {
+	// 			background-color: transparent;
+	// 			color: $button-primary-outline-disabled-color;
+
+	// 			&,
+	// 			&::after {
+	// 				border-color: $button-primary-outline-disabled-color;
+	// 			}
+	// 		}
+	// 	}
+
+	// 	&.#{$button}--danger {
+	// 		color: $button-danger-outline-color;
+
+	// 		&,
+	// 		&::after {
+	// 			border-color: $button-danger-outline-border-color;
+	// 		}
+
+	// 		&.#{$button}--hover {
+	// 			color: $button-danger-outline-active-border-color;
+
+	// 			&::after {
+	// 				background-color: $button-danger-outline-active-bg-color;
+	// 				border-color: $button-danger-outline-active-border-color;
+	// 			}
+	// 		}
+
+	// 		&.#{$button}--disabled {
+	// 			background-color: $bg-color-container;
+	// 			color: $button-danger-outline-disabled-color;
+
+	// 			&,
+	// 			&::after {
+	// 				border-color: $button-danger-outline-disabled-color;
+	// 			}
+	// 		}
+	// 	}
+
+	// 	&.#{$button}--light {
+	// 		color: $button-light-outline-color;
+	// 		background-color: $button-light-outline-bg-color;
+
+	// 		&,
+	// 		&::after {
+	// 			border-color: $button-light-outline-border-color;
+	// 		}
+
+	// 		&.#{$button}--hover {
+	// 			color: $button-light-outline-active-border-color;
+
+	// 			&,
+	// 			&::after {
+	// 				background-color: $button-light-outline-active-bg-color;
+	// 				border-color: $button-light-outline-active-border-color;
+	// 			}
+	// 		}
+
+	// 		&.#{$button}--disabled {
+	// 			background-color: $bg-color-container;
+	// 			color: $button-light-outline-disabled-color;
+
+	// 			&,
+	// 			&::after {
+	// 				border-color: $button-light-outline-disabled-color;
+	// 			}
+	// 		}
+	// 	}
+	// }
+
+	// &--dashed {
+	// 	background-color: $bg-color-container;
+	// 	border-style: dashed;
+	// 	border-width: 2rpx;
+
+	// 	&.#{$button}--hover,
+	// 	&.#{$button}--hover::after {
+	// 		background-color: $button-default-outline-active-bg-color;
+	// 		border-color: $button-default-outline-active-border-color;
+	// 	}
+
+	// 	&.#{$button}--primary {
+	// 		color: $button-primary-dashed-color;
+
+	// 		&::after {
+	// 			border-color: $button-primary-dashed-border-color;
+	// 			border: 0;
+	// 		}
+	// 		border-color: $button-primary-dashed-border-color;
+
+	// 		&.#{$button}--disabled {
+	// 			background-color: $bg-color-container;
+	// 			color: $button-primary-dashed-disabled-color;
+
+	// 			&::after {
+	// 				border-color: $button-primary-dashed-disabled-color;
+	// 			}
+	// 			border-color: $button-primary-dashed-disabled-color;
+	// 		}
+	// 	}
+
+	// 	&.#{$button}--danger {
+	// 		color: $button-danger-dashed-color;
+
+	// 		&::after {
+	// 			border-color: $button-danger-dashed-border-color;
+	// 		}
+	// 		border-color: $button-danger-dashed-border-color;
+
+	// 		&.#{$button}--disabled {
+	// 			background-color: transparent;
+	// 			color: $button-danger-dashed-disabled-color;
+
+	// 			&::after {
+	// 				border-color: $button-danger-dashed-disabled-color;
+	// 			}
+	// 		}
+	// 	}
+	// }
+
+	// &__loading + &__content:not(:empty),
+	// &__icon + &__content:not(:empty) {
+	// 	margin-left: 4px;
+	// }
+
+	// &__icon {
+	// 	border-radius: $button-icon-border-radius;
+	// }
+
+	// // 圆角长方形
+	// &--round {
+	// 	&.#{$button}--size-large {
+	// 		border-radius: calc(map.get($sizes-height, 'large') / 2);
+
+	// 		&::after {
+	// 			border-radius: map.get($sizes-height, 'large');
+	// 		}
+	// 	}
+
+	// 	&.#{$button}--size-medium {
+	// 		border-radius: calc(map.get($sizes-height, 'medium') / 2);
+
+	// 		&::after {
+	// 			border-radius: map.get($sizes-height, 'medium');
+	// 		}
+	// 	}
+
+	// 	&.#{$button}--size-small {
+	// 		border-radius: calc(map.get($sizes-height, 'small') / 2);
+
+	// 		&::after {
+	// 			border-radius: map.get($sizes-height, 'small');
+	// 		}
+	// 	}
+
+	// 	&.#{$button}--size-extra-small {
+	// 		border-radius: calc(map.get($sizes-height, 'extra-small') / 2);
+
+	// 		&::after {
+	// 			border-radius: map.get($sizes-height, 'extra-small');
+	// 		}
+	// 	}
+	// }
+
+	// // 正方形
+	// &--square {
+	// 	padding: 0;
+
+	// 	&.#{$button}--size-large {
+	// 		width: map.get($sizes-height, 'large');
+	// 	}
+
+	// 	&.#{$button}--size-medium {
+	// 		width: map.get($sizes-height, 'medium');
+	// 	}
+
+	// 	&.#{$button}--size-small {
+	// 		width: map.get($sizes-height, 'small');
+	// 	}
+
+	// 	&.#{$button}--size-extra-small {
+	// 		width: map.get($sizes-height, 'extra-small');
+	// 	}
+	// }
+
+	// // 圆形
+	// &--circle {
+	// 	padding: 0;
+	// 	border-radius: 50%;
+
+	// 	&.#{$button}--size-large {
+	// 		width: map.get($sizes-height, 'large');
+
+	// 		&::after {
+	// 			border-radius: 50%;
+	// 		}
+	// 	}
+
+	// 	&.#{$button}--size-medium {
+	// 		width: map.get($sizes-height, 'medium');
+
+	// 		&::after {
+	// 			border-radius: 50%;
+	// 		}
+	// 	}
+
+	// 	&.#{$button}--size-small {
+	// 		width: map.get($sizes-height, 'small');
+
+	// 		&::after {
+	// 			border-radius: 50%;
+	// 		}
+	// 	}
+
+	// 	&.#{$button}--size-extra-small {
+	// 		width: map.get($sizes-height, 'extra-small');
+
+	// 		&::after {
+	// 			border-radius: 50%;
+	// 		}
+	// 	}
+	// }
+
+	// &--block {
+	// 	display: flex;
+	// 	width: 100%;
+	// }
+
+	// &--disabled {
+	// 	cursor: not-allowed;
+	// }
+
+	// &__loading {
+	// 	&--wrapper {
+	// 		display: flex;
+	// 		align-items: center;
+	// 		justify-content: center;
+	// 	}
+	// }
+
+	// &.#{$button}--hover::after {
+	// 	z-index: -1;
+	// }
+}
+
+// @each $theme,
+// 	$colors
+// 		in (
+// 			default: (
+// 				bg: $button-default-text-active-bg-color,
+// 				color: map.get($theme-colors, 'default'),
+// 			),
+// 			primary: (
+// 				bg: $button-primary-text-active-bg-color,
+// 				color: $button-primary-text-color,
+// 			),
+// 			danger: (
+// 				bg: $button-danger-text-active-bg-color,
+// 				color: $button-danger-text-color,
+// 			),
+// 			light: (
+// 				bg: $button-danger-text-active-bg-color,
+// 				color: $button-danger-text-color,
+// 			)
+// 		)
+// {
+// 	.#{$button}--hover-#{$theme}-text {
+// 		color: map.get($colors, 'color');
+// 		background-color: map.get($colors, 'bg');
+// 	}
+// 	// #ifndef APP
+// 	.#{$button}.#{$button}--hover-#{$theme}-text {
+// 		@extend .#{$button}--hover-#{$theme}-text;
+// 	}
+// 	// #endif
+// }

@@ -1,0 +1,32 @@
+<template>
+	<view :class="classNames" :style="styles">
+		<slot></slot>
+	</view>
+</template>
+
+<script lang="uts" setup>
+import { PropsType, defaultProps } from './props.uts'
+
+const name = 't-col'
+const gutter = inject('t-row-gutter', 0)
+const props = withDefaults(defineProps<PropsType>(), defaultProps)
+
+const classNames = computed((): Map<string, boolean> => {
+	return new Map<string, boolean>([
+		[name, true],
+		[`${name}--${props.span}`, props.span > 0],
+		[`${name}--offset-${props.offset}`, props.offset > 0],
+	])
+})
+
+const styles = computed((): Map<string, string> => {
+	const map = new Map<string, string>()
+	if (gutter > 0) {
+		map.set('padding-left', `${gutter / 2}px`)
+		map.set('padding-right', `${gutter / 2}px`)
+	}
+	return map
+})
+</script>
+
+<style lang="scss" src="./t-col.scss"></style>

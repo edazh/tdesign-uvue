@@ -1,0 +1,29 @@
+<template>
+	<view :class="classNames">
+		<view class="t-divider__before"></view>
+		<view class="t-divider__content">
+			<text v-if="props.content" class="t-divider__content-text">{{ props.content }}</text>
+		</view>
+		<view class="t-divider__after"></view>
+	</view>
+</template>
+
+<script lang="uts" setup>
+import { PropsType, defaultProps } from './props.uts'
+
+const name = 't-divider'
+const props = withDefaults(defineProps<PropsType>(), defaultProps)
+
+const classNames = computed((): Map<string, boolean> => {
+	const map = new Map<string, boolean>([
+		[name, true],
+		[`${name}--${props.layout}`, true],
+		[`${name}--${props.align}`, true],
+		[`${name}--dashed`, props.dashed],
+		[`${name}--empty`, props.content.length === 0],
+	])
+	return map
+})
+</script>
+
+<style lang="scss" src="./t-divider.scss"></style>

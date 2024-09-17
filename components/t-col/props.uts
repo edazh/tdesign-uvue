@@ -1,0 +1,13 @@
+// import { InferDefaults } from '@/typings/props'
+
+export type PropsType = {
+	/** 列的偏移量（默认单位px） */
+	offset?: number
+	/** 列的宽度（默认单位px） */
+	span?: number
+}
+
+export const defaultProps = {
+	offset: 0,
+	span: 24,
+}

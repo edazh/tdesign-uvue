@@ -1,0 +1,12 @@
+.#{$prefix}-col {
+	min-height: 1px;
+}
+
+@for $i from 1 through 24 {
+	.#{$prefix}-col--#{$i} {
+		width: calc($i * 100% / 24);
+	}
+	.#{$prefix}-col--offset-#{$i} {
+		margin-left: calc($i * 100% / 24);
+	}
+}

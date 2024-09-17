@@ -1,0 +1,35 @@
+<template>
+	<view class="t-row" :style="styles">
+		<slot></slot>
+	</view>
+</template>
+
+<script lang="uts" setup>
+const props = withDefaults(
+	defineProps<{
+		gutter?: number
+	}>(),
+	{
+		gutter: 0,
+	}
+)
+
+provide('t-row-gutter', props.gutter)
+
+const styles = computed((): Map<string, string> => {
+	const map = new Map<string, string>()
+	if (props.gutter > 0) {
+		map.set('margin-left', `-${props.gutter / 2}px`)
+		map.set('margin-right', `-${props.gutter / 2}px`)
+	}
+	return map
+})
+</script>
+
+<style lang="scss">
+.t-row {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+</style>

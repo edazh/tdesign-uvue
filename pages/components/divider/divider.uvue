@@ -1,0 +1,53 @@
+<template>
+	<!-- #ifdef APP -->
+	<scroll-view style="flex: 1">
+		<!-- #endif -->
+		<view class="demo-title">Divider 分割线</view>
+		<view class="demo-caption">用于分割、组织、细化有一定逻辑的组织元素内容和页面结构。</view>
+
+		<view class="demo-subtitle">01 组件类型</view>
+		<view class="demo-caption">水平分割线</view>
+		<t-divider />
+
+		<view class="demo-caption">带文字水平分割线</view>
+		<t-divider content="文字信息" align="left" />
+		<t-divider content="文字信息" />
+		<t-divider content="文字信息" align="right" />
+
+		<view class="demo-caption">垂直分割线</view>
+		<view class="divider-wrapper">
+			<text class="divider-text">文字信息</text>
+			<t-divider layout="vertical" />
+			<text class="divider-text">文字信息</text>
+			<t-divider layout="vertical" />
+			<text class="divider-text">文字信息</text>
+		</view>
+
+		<view class="demo-subtitle">02 组件状态</view>
+		<view class="demo-caption">虚线样式</view>
+		<t-divider dashed />
+		<t-divider dashed content="文字信息" align="left" />
+		<t-divider dashed content="文字信息" />
+		<t-divider dashed content="文字信息" align="right" />
+
+		<!-- #ifdef APP -->
+	</scroll-view>
+	<!-- #endif -->
+</template>
+
+<script lang="uts" setup></script>
+
+<style lang="scss">
+.divider-wrapper {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	font-size: 28rpx;
+	padding-left: 32rpx;
+	margin-bottom: 32rpx;
+
+	.divider-text {
+		font-size: 16px;
+	}
+}
+</style>

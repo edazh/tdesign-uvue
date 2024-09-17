@@ -1,0 +1,80 @@
+<template>
+	<!-- #ifdef APP -->
+	<scroll-view style="flex: 1">
+		<!-- #endif -->
+		<t-row>
+			<t-col :span="8">
+				<view class="dark"><text class="text">col-8</text></view>
+			</t-col>
+			<t-col :span="8">
+				<view class="light"><text class="text">col-8</text></view>
+			</t-col>
+			<t-col :span="8">
+				<view class="dark"><text class="text">col-8</text></view>
+			</t-col>
+		</t-row>
+
+		<t-row>
+			<t-col :span="4">
+				<view class="dark"><text class="text">col-4</text></view>
+			</t-col>
+			<t-col :span="16" :offset="4">
+				<view class="light"><text class="text">col-16 col-offset-4</text></view>
+			</t-col>
+		</t-row>
+
+		<t-row>
+			<t-col :offset="12" :span="12">
+				<view class="dark"><text class="text">col-12 col-offset-12</text></view>
+			</t-col>
+		</t-row>
+
+		<t-row :gutter="8">
+			<t-col :span="8">
+				<view class="dark"><text class="text">col-8</text></view>
+			</t-col>
+			<t-col :span="8">
+				<view class="dark"><text class="text">col-8</text></view>
+			</t-col>
+			<t-col :span="8">
+				<view class="dark"><text class="text">col-8</text></view>
+			</t-col>
+		</t-row>
+
+		<!-- #ifdef APP -->
+	</scroll-view>
+	<!-- #endif -->
+</template>
+
+<script>
+export default {
+	data() {
+		return {}
+	},
+	methods: {},
+}
+</script>
+
+<style lang="scss">
+.dark {
+	background-color: #0052d9;
+}
+
+.light {
+	background-color: #366ef4;
+}
+
+.dark,
+.light {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 48px;
+	margin-bottom: 16px;
+
+	.text {
+		color: #fff;
+		font-size: 14px;
+	}
+}
+</style>

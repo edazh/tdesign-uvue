@@ -1,0 +1,52 @@
+<template>
+	<!-- #ifdef APP -->
+	<scroll-view style="flex: 1">
+		<!-- #endif -->
+		<text class="demo-title">Icon 图标</text>
+		<text class="demo-caption">
+			用于界面中的操作、入口、功能、服务等视觉表达，icon风格与品牌风格需要保持一致的感受，从而增加一致性
+		</text>
+
+		<t-row>
+			<t-col v-for="icon in icons" :key="icon" :span="6">
+				<view class="icon-cell" hover-class="icon-cell--hover" @click="() => handleClick(icon)">
+					<t-icon :name="icon" size="32px"></t-icon>
+					<text class="icon-cell__name">{{ icon }}</text>
+				</view>
+			</t-col>
+		</t-row>
+		<!-- #ifdef APP -->
+	</scroll-view>
+	<!-- #endif -->
+</template>
+
+<script setup>
+import icons from './data.uts'
+
+function handleClick(name: string) {
+	uni.showToast({
+		title: name,
+		icon: 'none',
+	})
+}
+</script>
+
+<style lang="scss">
+.icon-cell {
+	padding: 16px 0;
+	align-items: center;
+	height: 100%;
+	border: 1px solid #f8f8f8;
+
+	&--hover {
+		background-color: #f8f8f8;
+	}
+
+	&__name {
+		font-size: 12px;
+		color: gray;
+		text-align: center;
+		padding: 0 8px;
+	}
+}
+</style>

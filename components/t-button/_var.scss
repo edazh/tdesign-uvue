@@ -1,0 +1,216 @@
+$button-border-width: 1px;
+$button-border-radius: $radius-default;
+$button-font-weight: bold;
+
+// button icon
+$button-icon-spacer: $spacer;
+$button-icon-border-radius: 4px;
+
+// ghost 优先级高于 theme，固定透明背景，白色边框，白色字体
+$button-ghost-color: $bg-color-container;
+$button-ghost-border-color: $button-ghost-color;
+$button-ghost-disabled-color: rgba(255, 255, 255, 0.35);
+$button-ghost-hover-color: $font-white-2;
+$button-ghost-primary-color: $brand-color;
+$button-ghost-primary-border-color: $brand-color;
+$button-ghost-primary-hover-color: $brand-color-active;
+$button-ghost-danger-color: $error-color;
+$button-ghost-danger-border-color: $error-color;
+$button-ghost-danger-hover-color: $error-color-active;
+
+$button: '#{$prefix}-button';
+
+$button-sizes: (
+	'extra-small': (
+		'font': $font-size-base,
+		'padding-horizontal': 8px,
+		'height': 28px,
+		'icon': 18px,
+	),
+	'small': (
+		'font': $font-size-base,
+		'padding-horizontal': 12px,
+		'height': 32px,
+		'icon': 18px,
+	),
+	'medium': (
+		'font': $font-size-m,
+		'padding-horizontal': 16px,
+		'height': 40px,
+		'icon': 20px,
+	),
+	'large': (
+		'font': $font-size-m,
+		'padding-horizontal': 20px,
+		'height': 48px,
+		'icon': 24px,
+	),
+);
+
+$button-colors: (
+	'default': (
+		'base': (
+			'color': $text-color-primary,
+			'border': $bg-color-component,
+			'background': $bg-color-component,
+			'border-style': solid,
+			'active': $text-color-primary,
+			'active-border': $gray-color-5,
+			'active-background': $gray-color-5,
+			'disabled': $text-color-disabled,
+			'disabled-border': $bg-color-component-disabled,
+			'disabled-background': $bg-color-component-disabled,
+		),
+		'outline': (
+			'color': $text-color-primary,
+			'border': $component-border,
+			'background': $bg-color-container,
+			'border-style': solid,
+			'disabled': $text-color-disabled,
+			'disabled-border': $component-border,
+			'disabled-background': $bg-color-component-disabled,
+			'active': $text-color-primary,
+			'active-border': $component-border,
+			'active-background': $bg-color-container-active,
+		),
+		'dashed': (
+			'color': $text-color-primary,
+			'border': $component-border,
+			'background': $bg-color-component,
+			'border-style': dashed,
+			'disabled': $text-color-disabled,
+			'disabled-border': $component-border,
+			'disabled-background': $bg-color-component-disabled,
+			'active': $text-color-primary,
+			'active-border': $component-border,
+			'active-background': $bg-color-component-active,
+		),
+		'text': (
+			'color': $text-color-primary,
+			'border-style': none,
+			'disabled': $text-color-disabled,
+			'active-background': $bg-color-container-active,
+		),
+	),
+	'primary': (
+		'base': (
+			'color': $font-white-1,
+			'background': $brand-color,
+			'border': $brand-color,
+			'disabled': $font-white-1,
+			'disabled-border': $brand-color-disabled,
+			'disabled-background': $brand-color-disabled,
+			'active': $font-white-1,
+			'active-border': $brand-color-active,
+			'active-background': $brand-color-active,
+		),
+		'outline': (
+			'color': $brand-color,
+			'border': $brand-color,
+			'border-style': solid,
+			'disabled': $brand-color-disabled,
+			'disabled-border': $brand-color-disabled,
+			'active': $brand-color-active,
+			'active-border': $brand-color-active,
+			'active-background': $bg-color-container-active,
+		),
+		'dashed': (
+			'color': $brand-color,
+			'border': $brand-color,
+			'border-style': dashed,
+			'disabled': $brand-color-disabled,
+			'disabled-border': $brand-color-disabled,
+			'active': $brand-color-active,
+			'active-border': $brand-color-active,
+			'active-background': $bg-color-container-active,
+		),
+		'text': (
+			'color': $brand-color,
+			'disabled': $brand-color-disabled,
+			'active': $brand-color-active,
+			'active-background': $bg-color-container-active,
+		),
+	),
+	'light': (
+		'base': (
+			'color': $brand-color,
+			'border': $brand-color-light,
+			'background': $brand-color-light,
+			'disabled': $brand-color-disabled,
+			'disabled-border': $brand-color-light,
+			'disabled-background': $brand-color-light,
+			'active': $brand-color-active,
+			'active-border': $brand-color-light-active,
+			'active-background': $brand-color-light-active,
+		),
+		'outline': (
+			'color': $brand-color,
+			'border': $brand-color,
+			'background': $brand-color-light,
+			'border-style': solid,
+			'disabled': $brand-color-disabled,
+			'disabled-border': $brand-color-disabled,
+			'disabled-background': $brand-color-light,
+			'active': $brand-color-active,
+			'active-border': $brand-color-active,
+			'active-background': $brand-color-light-active,
+		),
+		'dashed': (
+			'color': $text-color-primary,
+			'border': $bg-color-component,
+			'background': $bg-color-component,
+			'border-style': dashed,
+			'disabled': $brand-color-disabled,
+			'disabled-border': $brand-color-disabled,
+			'disabled-background': $brand-color-light,
+			'active': $brand-color-active,
+			'active-border': $bg-color-component-active,
+			'active-background': $bg-color-component-active,
+		),
+		'text': (
+			'color': $brand-color,
+			'disabled': $brand-color-disabled,
+			'active': $brand-color-active,
+			'active-background': $bg-color-container-active,
+		),
+	),
+	'danger': (
+		'base': (
+			'color': $font-white-1,
+			'border': $error-color,
+			'background': $error-color,
+			'disabled': $font-white-1,
+			'disabled-border': $error-color-3,
+			'disabled-background': $error-color-3,
+			'active': $font-white-1,
+			'active-border': $error-color-7,
+			'active-background': $error-color-7,
+		),
+		'outline': (
+			'color': $error-color,
+			'border': $error-color,
+			'border-style': solid,
+			'disabled': $error-color-3,
+			'disabled-border': $error-color-disabled,
+			'active': $error-color-active,
+			'active-border': $error-color-active,
+			'active-background': $bg-color-container-active,
+		),
+		'dashed': (
+			'color': $error-color,
+			'border': $error-color,
+			'border-style': dashed,
+			'disabled': $error-color-disabled,
+			'disabled-border': $error-color-disabled,
+			'active': $error-color-active,
+			'active-border': $error-color-active,
+			'active-background': $bg-color-container-active,
+		),
+		'text': (
+			'color': $error-color,
+			'disabled': $error-color-disabled,
+			'active': $error-color-active,
+			'active-background': $bg-color-container-active,
+		),
+	),
+);

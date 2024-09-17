@@ -1,0 +1,37 @@
+<template>
+	<button :class="classNames" :hover-class="hoverClass">
+		<slot></slot>
+	</button>
+</template>
+
+<script lang="uts" setup>
+import { PropsType, defaultProps } from './props.uts'
+
+const name = `t-button`
+
+const props = withDefaults(defineProps<PropsType>(), defaultProps)
+
+const classNames = computed((): Map<string, boolean> => {
+	const map = new Map<string, boolean>([
+		[name, true],
+		[`${name}--${props.variant}`, true],
+		[`${name}--${props.theme}`, true],
+		[`${name}--${props.shape}`, true],
+		[`${name}--size-${props.size}`, true],
+		[`${name}--block`, props.block],
+		[`${name}--disabled`, props.disabled],
+		[`${name}--ghost`, props.ghost],
+	])
+	return map
+})
+
+const hoverClass = computed((): string => {
+	if (props.disabled || props.loading) return 'none'
+	// if (props.variant === 'text') {
+	// 	return `${name}--hover-${props.theme}-text`
+	// }
+	return `${name}--${props.theme}-${props.variant}-hover`
+})
+</script>
+
+<style lang="scss" src="./t-button.scss"></style>

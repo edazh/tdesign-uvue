@@ -1,0 +1,221 @@
+<template>
+	<!-- #ifdef APP -->
+	<scroll-view style="flex: 1">
+		<!-- #endif -->
+		<view class="demo-title">Button 按钮</view>
+		<view class="demo-caption">用于开启一个闭环的操作任务，如“删除”对象、“购买”商品等。</view>
+
+		<view class="demo-subtitle">01 组件类型</view>
+		<view class="demo-caption">基础按钮</view>
+
+		<t-row class="row" :gutter="8">
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button theme="primary" size="large">填充按钮</t-button>
+				</view>
+			</t-col>
+
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button theme="light" size="large">填充按钮</t-button>
+				</view>
+			</t-col>
+
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button size="large">填充按钮</t-button>
+				</view>
+			</t-col>
+
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button theme="primary" size="large" variant="outline">实线边框</t-button>
+				</view>
+			</t-col>
+
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button theme="primary" size="large" variant="dashed">虚线边框</t-button>
+				</view>
+			</t-col>
+
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button theme="primary" size="large" variant="text">文本按钮</t-button>
+				</view>
+			</t-col>
+		</t-row>
+
+		<view class="demo-subtitle">02 组件状态</view>
+		<view class="demo-caption">按钮禁用态</view>
+		<t-row class="row" :gutter="8">
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button size="large" disabled>填充按钮</t-button>
+				</view>
+			</t-col>
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button size="large" variant="outline" disabled>描边按钮</t-button>
+				</view>
+			</t-col>
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button size="large" variant="dashed" disabled>虚线按钮</t-button>
+				</view>
+			</t-col>
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button size="large" variant="text" disabled>文字按钮</t-button>
+				</view>
+			</t-col>
+
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button theme="primary" size="large" disabled>填充按钮</t-button>
+				</view>
+			</t-col>
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button theme="primary" size="large" variant="outline" disabled>描边按钮</t-button>
+				</view>
+			</t-col>
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button theme="primary" size="large" variant="dashed" disabled>虚线按钮</t-button>
+				</view>
+			</t-col>
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button theme="primary" size="large" variant="text" disabled>文字按钮</t-button>
+				</view>
+			</t-col>
+
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button theme="light" size="large" disabled>填充按钮</t-button>
+				</view>
+			</t-col>
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button theme="light" size="large" variant="outline" disabled>描边按钮</t-button>
+				</view>
+			</t-col>
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button theme="light" size="large" variant="dashed" disabled>虚线按钮</t-button>
+				</view>
+			</t-col>
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button theme="light" size="large" variant="text" disabled>文字按钮</t-button>
+				</view>
+			</t-col>
+
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button theme="danger" size="large" disabled>填充按钮</t-button>
+				</view>
+			</t-col>
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button theme="danger" size="large" variant="outline" disabled>描边按钮</t-button>
+				</view>
+			</t-col>
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button theme="danger" size="large" variant="dashed" disabled>虚线按钮</t-button>
+				</view>
+			</t-col>
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button theme="danger" size="large" variant="text" disabled>文字按钮</t-button>
+				</view>
+			</t-col>
+		</t-row>
+
+		<view class="demo-subtitle">03 组件样式</view>
+		<view class="demo-caption">按钮主题</view>
+		<t-row class="row" :gutter="8">
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button size="large">填充按钮</t-button>
+				</view>
+			</t-col>
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button size="large" variant="outline">描边按钮</t-button>
+				</view>
+			</t-col>
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button size="large" variant="text">文字按钮</t-button>
+				</view>
+			</t-col>
+
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button theme="primary" size="large">填充按钮</t-button>
+				</view>
+			</t-col>
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button theme="primary" size="large" variant="outline">描边按钮</t-button>
+				</view>
+			</t-col>
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button theme="primary" size="large" variant="text">文字按钮</t-button>
+				</view>
+			</t-col>
+
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button theme="danger" size="large">填充按钮</t-button>
+				</view>
+			</t-col>
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button theme="danger" size="large" variant="outline">描边按钮</t-button>
+				</view>
+			</t-col>
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button theme="danger" size="large" variant="text">文字按钮</t-button>
+				</view>
+			</t-col>
+
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button theme="light" size="large">填充按钮</t-button>
+				</view>
+			</t-col>
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button theme="light" size="large" variant="outline">描边按钮</t-button>
+				</view>
+			</t-col>
+			<t-col :span="8">
+				<view class="col-cell">
+					<t-button theme="light" size="large" variant="text">文字按钮</t-button>
+				</view>
+			</t-col>
+		</t-row>
+
+		<!-- #ifdef APP -->
+	</scroll-view>
+	<!-- #endif -->
+</template>
+
+<script setup></script>
+
+<style lang="scss">
+.row {
+	padding: 8px 16px;
+}
+
+.col-cell {
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+</style>

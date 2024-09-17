@@ -1,0 +1,54 @@
+<template>
+	<!-- #ifdef APP -->
+	<scroll-view style="flex: 1; background-color: #f2f2f2">
+		<!-- #endif -->
+		<view class="collapse-list">
+			<component-panel
+				v-for="item in list"
+				:key="item.name"
+				:name="item.name"
+				:icon="item.icon"
+				:data="item.children"
+				@click="handlePanelClick"
+			></component-panel>
+		</view>
+		<!-- #ifdef APP -->
+	</scroll-view>
+	<!-- #endif -->
+</template>
+
+<script lang="uts" setup>
+import list from './data.uts'
+import ComponentPanel from './components/component-panel.uvue'
+
+function handlePanelClick(data) {
+	let name = data.name
+	let path = data.path
+	if (!path) {
+		name = name.replace(/^[A-Z]/, (match) => `${match}`.toLocaleLowerCase())
+		name = name.replace(/[A-Z]/g, (match) => {
+			return `-${match.toLowerCase()}`
+		})
+
+		path = `/pages/components/${name}/${name}`
+	}
+
+	uni.navigateTo({
+		url: path,
+		fail: () => {
+			uni.showToast({ title: '正在开发中', icon: 'error' })
+		},
+	})
+}
+</script>
+
+<style lang="scss">
+page {
+	background-color: #f2f2f2;
+}
+
+.collapse-list {
+	display: flex;
+	padding: 20px 16px;
+}
+</style>
