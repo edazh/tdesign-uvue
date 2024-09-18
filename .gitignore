@@ -6,6 +6,8 @@
 dist
 unpackage
 node_modules
+docs/.vitepress/dist
+docs/.vitepress/cache
 
 # IDEs and editors
 .idea
