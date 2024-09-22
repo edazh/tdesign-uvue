@@ -25,13 +25,27 @@
 		{
 			"path": "pages/components/col/col",
 			"style": {
-				"navigationBarTitleText": "col"
+				"navigationBarTitleText": "Layout"
 			}
 		},
 		{
 			"path": "pages/components/divider/divider",
 			"style": {
 				"navigationBarTitleText": "Divider"
+			}
+		},
+		{
+			"path" : "pages/components/cell/cell",
+			"style" : 
+			{
+				"navigationBarTitleText" : "Cell"
+			}
+		},
+		{
+			"path" : "pages/components/loading/loading",
+			"style" : 
+			{
+				"navigationBarTitleText" : "Loading"
 			}
 		}
 	],

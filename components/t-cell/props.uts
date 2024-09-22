@@ -1,0 +1,78 @@
+import { InferDefaults } from '@/typings/props'
+
+export type PropsType = {
+	/**
+	 * 内容的对齐方式，默认居中对齐
+	 * @default middle
+	 */
+	align?: 'top' | 'middle' | 'bottom'
+	/**
+	 * 是否显示右侧箭头
+	 * @default false
+	 */
+	arrow?: boolean
+	/**
+	 * 是否显示下边框
+	 * @default true
+	 */
+	bordered?: boolean
+	/**
+	 * 下方内容描述
+	 */
+	description?: string
+	/**
+	 * 是否开启点击反馈
+	 */
+	hover?: boolean
+	/**
+	 * 主图
+	 */
+	image?: string
+	/**
+	 * 链接跳转类型
+	 * @default navigateTo
+	 */
+	jumpType?: 'switchTab' | 'reLaunch' | 'redirectTo' | 'navigateTo'
+	/**
+	 * 左侧图标，出现在单元格标题的左侧
+	 */
+	leftIcon?: string
+	/**
+	 * 和标题同行的说明文字
+	 */
+	note?: string
+	/**
+	 * 是否显示表单必填星号
+	 * @default false
+	 */
+	required?: boolean
+	/**
+	 * 最右侧图标
+	 */
+	rightIcon?: string
+	/**
+	 * 标题
+	 */
+	title?: string
+	/**
+	 * 点击后跳转链接地址。如果值为空，则表示不需要跳转
+	 * @default ''
+	 */
+	url?: string
+}
+
+export const defaultProps: InferDefaults<PropsType> = {
+	align: 'middle',
+	arrow: false,
+	bordered: true,
+	description: '',
+	hover: false,
+	image: '',
+	jumpType: 'navigateTo',
+	leftIcon: '',
+	note: '',
+	required: false,
+	rightIcon: '',
+	title: '',
+	url: '',
+}

@@ -1,0 +1,93 @@
+<template>
+	<view :class="classNames">
+		<image
+			v-if="props.indicator"
+			ref="spinnerRef"
+			class="t-loading__spinner"
+			:style="iconStyle"
+			:src="loadingIcon"
+			mode="aspectFit"
+		></image>
+
+		<view v-if="props.theme === 'dots'">
+			<view
+				class="t-loading__dot"
+				style="{{duration ? 'animation-duration: ' + duration/1000 + 's; animation-delay:' + 0 + 's;' : ''}} animation-play-state: {{pause ? 'paused' : 'running'}};"
+			></view>
+			<view
+				class="t-loading__dot"
+				style="{{duration ? 'animation-duration: ' + duration/1000 + 's; animation-delay:' + duration * 1 / 3000 + 's;' : ''}} animation-play-state: {{pause ? 'paused' : 'running'}};"
+			></view>
+			<view
+				class="t-loading__dot"
+				style="{{duration ? 'animation-duration: ' + duration/1000 + 's; animation-delay:' + duration * 2 / 3000 + 's;' : ''}} animation-play-state: {{pause ? 'paused' : 'running'}};"
+			></view>
+		</view>
+
+		<text v-if="props.text" class="t-loading__text" :style="textStyle">
+			{{ props.text }}
+		</text>
+	</view>
+</template>
+
+<script lang="uts" setup>
+import { PropsType, defaultProps } from './props.uts'
+import iconCircular from './icon-circular.png'
+import iconSpinner from './icon-spinner.png'
+
+const props = withDefaults(defineProps<PropsType>(), defaultProps)
+
+const spinnerRef = ref<UniElement | null>(null)
+const isMounted = ref(false)
+
+const classNames = computed(
+	(): Map<string, boolean> =>
+		new Map<string, boolean>([
+			['t-loading', true],
+			[`t-loading--${props.layout}`, true],
+		])
+)
+
+const iconStyle = computed(() => {
+	return new Map([
+		['height', props.size],
+		['width', props.size],
+		['transform', isMounted.value ? 'rotate(1296000deg)' : 'rotate(0deg)'],
+	])
+})
+
+const textStyle = computed((): Map<string, string> => {
+	const map = new Map<string, string>()
+	if (props.layout === 'horizontal') {
+		map.set('margin-left', '8px')
+	} else if (props.layout === 'vertical') {
+		map.set('margin-top', '8px')
+	}
+	return map
+})
+
+const loadingIcon = computed(() => {
+	if (props.icon) {
+		return props.icon
+	} else if (props.theme === 'circular') {
+		return iconCircular
+	} else if (props.theme === 'spinner') {
+		return iconSpinner
+	}
+	return ''
+})
+
+onMounted(() => {
+	isMounted.value = true
+})
+
+// function handleEnd() {
+// 	const spinner = spinnerRef.value
+// 	console.log('handleEnd', spinner)
+// 	if (!spinner) return
+// 	spinner.style.setProperty('transform', `rotate(${times++ * 360}deg)`)
+// 	spinner.style.setProperty('transition-duration', '1s')
+// }
+</script>
+
+<style lang="scss" src="./t-loading.scss"></style>
