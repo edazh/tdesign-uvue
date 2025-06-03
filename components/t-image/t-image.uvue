@@ -1,0 +1,11 @@
+<template>
+	<view> </view>
+</template>
+
+<script lang="uts" setup>
+import { PropsType, defaultProps } from './props.uts'
+
+const props = withDefaults(defineProps<PropsType>(), defaultProps)
+</script>
+
+<style lang="scss"></style>

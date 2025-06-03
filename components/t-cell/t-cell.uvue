@@ -1,0 +1,74 @@
+<template>
+	<view class="t-cell" :hover-class="hoverClass" hover-stay-time="70">
+		<view class="t-cell__left">
+			<slot name="left-icon">
+				<t-icon class="t-cell__left-icon" :name="props.leftIcon" />
+			</slot>
+
+			<!-- <slot name="image">
+				<t-image
+					v-if="props.image"
+					class="t-cell__left-image"
+					shape="round"
+					:src="props.image"
+				/>
+			</slot> -->
+		</view>
+		<view class="t-cell__center">
+			<view class="t-cell__title">
+				<slot name="title">
+					<text v-if="props.title" class="t-cell__title-text">{{ title }}</text>
+				</slot>
+				<text v-if="props.required" decode class="t-cell--required">
+					&nbsp;*
+				</text>
+			</view>
+
+			<view class="t-cell__description">
+				<slot name="description">
+					<text v-if="props.description" class="t-cell__description-text">
+						{{ props.description }}
+					</text>
+				</slot>
+			</view>
+		</view>
+
+		<view class="t-cell__note">
+			<slot name="note">
+				<text v-if="props.note" class="t-cell__note-text">
+					{{ props.note }}
+				</text>
+			</slot>
+		</view>
+
+		<view class="t-cell__right">
+			<template v-if="props.arrow">
+				<t-icon
+					class="t-cell__left-icon"
+					name="chevron-right"
+					color="rgba(0, 0, 0, 0.4)"
+					size="24px"
+				/>
+			</template>
+			<template v-else-if="props.rightIcon">
+				<slot name="right-icon">
+					<t-icon class="t-cell__right-icon" :name="props.rightIcon" />
+				</slot>
+			</template>
+		</view>
+
+		<view class="t-cell__border"></view>
+	</view>
+</template>
+
+<script lang="uts" setup>
+import { PropsType, defaultProps } from './props.uts'
+
+const props = withDefaults(defineProps<PropsType>(), defaultProps)
+
+const hoverClass = computed((): string =>
+	props.arrow ? 't-cell--hover' : 'none'
+)
+</script>
+
+<style lang="scss" src="./t-cell.scss"></style>

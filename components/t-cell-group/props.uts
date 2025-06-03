@@ -1,0 +1,16 @@
+import { InferDefaults } from '@/typings/props'
+
+export type PropsType = {
+	/** 是否显示组边框 */
+	bordered?: boolean
+	/** 单元格风格 */
+	theme?: 'default' | 'card'
+	/** 单元格组标题 */
+	title?: string
+}
+
+export const defaultProps: InferDefaults<PropsType> = {
+	bordered: false,
+	theme: 'default',
+	title: '',
+}

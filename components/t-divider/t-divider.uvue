@@ -1,10 +1,12 @@
 <template>
 	<view :class="classNames">
-		<view class="t-divider__before"></view>
+		<view class="t-divider__before" :style="borderStyle"></view>
 		<view class="t-divider__content">
-			<text v-if="props.content" class="t-divider__content-text">{{ props.content }}</text>
+			<text v-if="props.content" class="t-divider__content-text">{{
+				props.content
+			}}</text>
 		</view>
-		<view class="t-divider__after"></view>
+		<view class="t-divider__after" :style="borderStyle"></view>
 	</view>
 </template>
 
@@ -19,9 +21,25 @@ const classNames = computed((): Map<string, boolean> => {
 		[name, true],
 		[`${name}--${props.layout}`, true],
 		[`${name}--${props.align}`, true],
-		[`${name}--dashed`, props.dashed],
 		[`${name}--empty`, props.content.length === 0],
 	])
+	return map
+})
+
+const borderStyle = computed((): Map<string, string> => {
+	const map = new Map<string, string>()
+	if (props.dashed) {
+		map.set('border-style', 'dashed')
+	}
+	if (props.layout === 'vertical') {
+		map.set('border-width', '1px')
+		map.set('transform', 'scaleX(0.25)')
+		map.set('transform-origin', 'right')
+	} else {
+		map.set('border-width', '1px')
+		map.set('transform', 'scaleY(0.25)')
+		map.set('transform-origin', 'bottom')
+	}
 	return map
 })
 </script>

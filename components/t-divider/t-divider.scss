@@ -2,7 +2,6 @@ $divider-color: $bg-color-component;
 $divider-content-color: $text-color-placeholder;
 $divider-content-font-size: 12px;
 $divider-content-line-height: 20px;
-$divider-content-line-style: solid;
 
 .#{$prefix}-divider {
 	display: flex;
@@ -15,7 +14,7 @@ $divider-content-line-style: solid;
 		box-sizing: border-box;
 		border-width: 0;
 		border-color: $divider-color;
-		border-style: $divider-content-line-style;
+		border-style: solid;
 	}
 
 	&__content {
@@ -42,20 +41,20 @@ $divider-content-line-style: solid;
 		margin: 0 8px;
 		width: auto;
 
-		.#{$prefix}-divider__before,
-		.#{$prefix}-divider__after {
-			border-left-width: 1px;
-			transform: scaleX(0.5);
-			transform-origin: bottom;
-		}
+		// .#{$prefix}-divider__before,
+		// .#{$prefix}-divider__after {
+		// 	border-left-width: 1px;
+		// 	transform: scaleX(0.5);
+		// 	transform-origin: bottom;
+		// }
 	}
 
-	&--dashed {
-		.#{$prefix}-divider__before,
-		.#{$prefix}-divider__after {
-			border-style: dashed;
-		}
-	}
+	// &--dashed {
+	// 	.#{$prefix}-divider__before,
+	// 	.#{$prefix}-divider__after {
+	// 		border-style: dashed;
+	// 	}
+	// }
 
 	&--empty {
 		.#{$prefix}-divider__content {

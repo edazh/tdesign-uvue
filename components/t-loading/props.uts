@@ -1,0 +1,48 @@
+import { InferDefaults } from '@/typings/props'
+
+export type PropsType = {
+	/**
+	 * 延迟显示加载效果的时间，用于防止请求速度过快引起的加载闪烁，单位：毫秒
+	 * @default 0
+	 */
+	// delay?: number
+	/**
+	 * 加载动画执行完成一次的时间，单位：毫秒
+	 * @default 800
+	 */
+	// duration?: number
+	/**
+	 * 加载指示符，值为 true 显示默认指示符，值为 false 则不显示，也可以自定义指示符
+	 * @default true
+	 */
+	indicator?: boolean
+	/**
+	 * 对齐方式
+	 * @default horizontal
+	 */
+	layout?: 'horizontal' | 'vertical'
+	/**
+	 * 尺寸，示例：40rpx/20px
+	 * @default 20px
+	 */
+	size?: string
+	/**
+	 * 加载提示文案
+	 */
+	text?: string
+	/**
+	 * 加载组件类型
+	 * @default circular
+	 */
+	theme?: 'circular' | 'spinner' | 'dots'
+	icon?: string
+}
+
+export const defaultProps: InferDefaults<PropsType> = {
+	indicator: true,
+	layout: 'horizontal',
+	size: '20px',
+	text: '',
+	theme: 'circular',
+	icon: '',
+}

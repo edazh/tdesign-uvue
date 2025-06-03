@@ -1,0 +1,84 @@
+<template>
+	<!-- #ifdef APP -->
+	<scroll-view style="flex: 1">
+		<!-- #endif -->
+		<view class="demo-title">Loading 加载</view>
+		<view class="demo-caption">
+			用于表示页面或操作的加载状态，给予用户反馈的同时减缓等待的焦虑感，由一个或一组反馈动效组成。
+		</view>
+
+		<view class="demo-subtitle">01 组件类型</view>
+		<view class="demo-caption">纯图标</view>
+		<view class="loading-container-flex">
+			<t-loading class="wrapper" theme="circular" size="20px" />
+			<t-loading class="wrapper" theme="spinner" size="20px" />
+			<t-loading class="wrapper" theme="dots" size="40px" />
+		</view>
+
+		<view class="demo-caption">图标加文字横向</view>
+		<view class="loading-container-flex">
+			<t-loading
+				class="wrapper"
+				theme="circular"
+				size="20px"
+				text="加载中..."
+			/>
+			<t-loading class="wrapper" theme="spinner" size="20px" text="加载中..." />
+		</view>
+
+		<view class="demo-caption">图标加文字竖向</view>
+		<view class="loading-container-flex">
+			<t-loading
+				class="wrapper"
+				theme="circular"
+				size="20px"
+				text="加载中"
+				layout="vertical"
+			/>
+			<t-loading
+				class="wrapper"
+				theme="spinner"
+				size="20px"
+				text="加载中"
+				layout="vertical"
+			/>
+		</view>
+
+		<view class="demo-caption">纯文字</view>
+		<view class="loading-container-flex">
+			<t-loading
+				class="wrapper"
+				text="加载中..."
+				:indicator="false"
+			></t-loading>
+		</view>
+
+		<view class="demo-subtitle">02 组件尺寸</view>
+		<view class="demo-caption">大尺寸</view>
+		<t-loading class="wrapper" theme="circular" size="48px" text="加载中..." />
+
+		<view class="demo-caption">中尺寸</view>
+		<t-loading class="wrapper" theme="circular" size="32px" text="加载中..." />
+
+		<view class="demo-caption">小尺寸</view>
+		<t-loading class="wrapper" theme="circular" size="16px" text="加载中..." />
+
+		<!-- #ifdef APP -->
+	</scroll-view>
+	<!-- #endif -->
+</template>
+
+<script lang="uts" setup></script>
+
+<style lang="scss">
+.loading-container-flex {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 16px;
+}
+
+.wrapper {
+	margin-right: 40px;
+}
+</style>

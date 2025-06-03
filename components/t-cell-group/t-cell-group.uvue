@@ -1,0 +1,18 @@
+<template>
+	<view class="t-cell-group">
+		<view v-if="props.title" class="t-cell-group__title">
+			{{ title }}
+		</view>
+		<view class="t-cell-group__content">
+			<slot />
+		</view>
+	</view>
+</template>
+
+<script lang="uts" setup>
+import { PropsType, defaultProps } from './props.uts'
+
+const props = withDefaults(defineProps<PropsType>(), defaultProps)
+</script>
+
+<style lang="scss"></style>
